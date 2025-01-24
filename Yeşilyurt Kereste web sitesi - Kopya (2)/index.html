@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yeşilyurt Kereste - Kaliteli Kereste ve Ahşap Ürünler">
+    <meta name="author" content="Yeşilyurt Kereste">
+    <title>Yeşilyurt Kereste</title>
+    <style>
+
+        #iletisim h2 {
+            border-bottom: 2px solid #4CAF50;  /* Yeşil renkli alt sınır */
+            padding-bottom: 10px;  /* Çizgi ile yazı arasına boşluk ekler */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: url('Görsel/resim1.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgba(76, 175, 80, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: rgba(56, 142, 60, 0.9);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.01); /* %1 şeffaflık */
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.01); /* %1 şeffaflık */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ürün kutuları */
+        .urunler-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .urun-kutu {
+            background-color: rgba(255, 255, 255, 0.8); /* Beyaz opak kutu */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 22%; /* Kutuların genişliği */
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .urun-kutu:hover {
+            transform: scale(1.05); /* Ürün kutusuna hover efekti ekledik */
+        }
+
+        .urun-kutu img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .urun-kutu h3 {
+            margin: 15px 0;
+            color: #4CAF50;
+        }
+
+        .urun-kutu a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .urun-kutu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Kavak Alım ve Nakliye Kutularını Yan Yana Koymak */
+        .kavak-nakliye-container {
+            display: flex;
+            justify-content: space-between; /* Kutular arasında boşluk bırakır */
+            gap: 20px; /* Aralarına mesafe ekler */
+            flex-wrap: wrap; /* Ekran daraldığında alt satıra geçmesini sağlar */
+        }
+
+        .kavak-alim-kutu, .Nakliye-kutu{
+            width: 48%; /* Kutuların genişliği %48, arada boşluk bırakmak için */
+        }
+
+        /* Kavak Alım Bölümü */
+        #kavak-alim {
+            margin-top: 40px;
+            padding: 20px;
+            background-color:  rgba(255, 255, 255, 0.01); /* %1 şeffaflık */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Kavak Alım Kutu Stili */
+        .kavak-alim-kutu {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .kavak-alim-kutu:hover {
+            transform: scale(1.05); /* Ürün kutusuna hover efekti ekledik */
+        }
+
+        .kavak-alim-kutu img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Görselin kutuya uyum sağlamasını ve orantısız kesilmesini engeller */
+            border-radius: 5px;
+        }
+
+        .kavak-alim-kutu h3 {
+            margin: 15px 0;
+            color: #4CAF50;
+        }
+
+        .kavak-alim-kutu p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .kavak-alim-kutu a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .kavak-alim-kutu a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Nakliye Kısmı */
+        #Nakliye {
+            margin-top: 40px;
+            padding: 20px;
+            background-color:  rgba(255, 255, 255, 0.01); /* %1 şeffaflık */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Nakliye Kutu Stili */
+        .Nakliye-kutu {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .Nakliye-kutu:hover {
+            transform: scale(1.05); /* Ürün kutusuna hover efekti ekledik */
+        }
+
+        .Nakliye-kutu img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Görselin kutuya uyum sağlamasını ve orantısız kesilmesini engeller */
+            border-radius: 5px;
+        }
+
+        .Nakliye-kutu h3 {
+            margin: 15px 0;
+            color: #4CAF50;
+        }
+
+        .Nakliye-kutu p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .Nakliye-kutu a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .Nakliye-kutu a:hover {
+            text-decoration: underline;
+        }
+
+        /* İletişim Kısımları: Sağ Üst Köşe */
+        #iletisim {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            color: #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Genişliği artırdık */
+            text-align: center;
+        }
+
+        /* Telefon Numaralarını Yeşil Kutu İçinde Gösterme */
+        #iletisim a {
+            color: white;
+            background-color: #4CAF50; /* Yeşil arka plan */
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: center; /* Numara ortalanacak */
+        }
+
+        #iletisim a:hover {
+            background-color: #388E3C; /* Hover durumunda koyu yeşil arka plan */
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Yeşilyurt Kereste</h1>
+        <p>Doğadan Gelen Güç, Yeşilyurt'un Uzmanlığıyla Buluşuyor</p>
+    </header>
+    <nav>
+        <a href="Patron.html">Davut Yeşilyurt</a>
+    </nav>
+    <main>
+        <section id="hakkimizda">
+            <h2>Hakkımızda</h2>
+            <p>Yeşilyurt Kereste, Selvi Kavaklarından yapılan kaliteli kereste ve ahşap ürünler sunarak sektörde öncü bir konuma sahiptir. 
+               Müşterilerimize dayanıklı ve çevre dostu ürünler sunma misyonuyla çalışıyoruz.</p>
+        </section>
+
+        <!-- Ürünler Kısmı: 4 Resimli Kutular -->
+        <section id="urunlerimiz">
+            <h2>Ürünlerimiz</h2>
+            <div class="urunler-container">
+                <!-- 10'luk Tahta -->
+                <div class="urun-kutu">
+                    <a href="urun10luk.html">
+                        <img src="Görsel/resim10luk.jpg" alt="10'luk Tahta">
+                        <h3>10'luk Tahta</h3>
+                    </a>
+                </div>
+
+                <!-- 12'lik Tahta -->
+                <div class="urun-kutu">
+                    <a href="urun12lik.html">
+                        <img src="Görsel/resim12lik.jpg" alt="12'lik Tahta">
+                        <h3>12'lik Tahta</h3>
+                    </a>
+                </div>
+
+                <!-- 15'lik Tahta -->
+                <div class="urun-kutu">
+                    <a href="urun15lik.html">
+                        <img src="Görsel/resim15lik.jpg" alt="15'lik Tahta">
+                        <h3>15'lik Tahta</h3>
+                    </a>
+                </div>
+
+                <!-- 5'e 10 Tahta -->
+                <div class="urun-kutu">
+                    <a href="urun5e10.html">
+                        <img src="Görsel/resim5e10.jpg" alt="5'e 10 Tahta">
+                        <h3>5'e 10 Tahta</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kavak Alım ve Nakliye Bölümlerini Yan Yana Koymak -->
+        <section id="kavak-alim">
+            <h2>Kavak Alım ve Nakliye</h2>
+            <div class="kavak-nakliye-container">
+                <!-- Kavak Alım Kutu -->
+                <div class="kavak-alim-kutu">
+                    <a href="kavak-alim-sayfasi.html">
+                        <img src="Görsel/resimkavak.jpg" alt="Kavak Alım" />
+                        <h3>Yeşilyurt Kereste Kavak Alım</h3>
+                    </a>
+                </div>
+
+ <!-- Nakliye Kutu -->
+                <div class="Nakliye-kutu">
+                    <a href="Nakliye.html">
+                        <img src="Görsel/KeresteTir2Küçük.jpg" alt="Nakliye" />
+                        <h3>Yeşilyurt Kereste Nakliye İmkanlarımız</h3>
+                    </a>
+                </div>
+
+
+    <!-- İletişim Bilgilerini Sağ Üst Köşeye Taşıdık -->
+    <section id="iletisim">
+        <h2>İletişim</h2>
+        <a href="tel:+905372610265">0537 395 61 43 (Davut Yeşilyurt)</a>
+        <a href="tel:+905448526945">0544 852 69 45 (Zeki Yeşilyurt)</a>
+        <a href="mailto:yesilyurt.kereste.is@gmail.com">yesilyurt.kereste.is@gmail.com</a>
+    </section>
+</body>
+</html>
